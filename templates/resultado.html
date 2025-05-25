@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado de Predicción</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e69ca;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .info-cliente {
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #eef4ff;
+      border-left: 4px solid #3498db;
+      border-radius: 6px;
+    }
+    .box {
+      border: 2px solid #e74c3c;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .box .corner-label {
+      position: absolute;
+      top: 10px;
+      font-weight: bold;
+    }
+    .box .corner-label.left {
+      left: 20px;
+      color: #555;
+    }
+    .box .corner-label.right {
+      right: 20px;
+      color: #27ae60;
+    }
+    .box h1 {
+      color: #e74c3c;
+      font-size: 48px;
+      margin: 40px 0 10px;
+    }
+    .summary {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+    .summary li {
+      margin-bottom: 10px;
+    }
+    .graficas {
+      margin-top: 30px;
+    }
+    .graficas img {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .graficas h3 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .bullets {
+      margin-top: 30px;
+      padding-left: 40px;
+      line-height: 1.6;
+    }
+    .btn-volver, .btn-salud {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- INFO DEL CLIENTE -->
+    <div style="text-align: left; margin-bottom: 20px;">
+      <img src="{{ url_for('static', filename='hey_banco.png') }}" alt="Hey Banco" style="max-width: 160px;">
+    </div>           
+    <div class="info-cliente">
+      <p><strong>ID del Cliente:</strong> {{ cliente_id }}</p>
+      <p><strong>Gasto mensual anterior:</strong> ${{ ultimo }}</p>
+    </div>
+
+    <!-- PREDICCIÓN -->
+    <div class="box">
+      <span class="corner-label left">Predicción</span>
+      <span class="corner-label right">Cobertura: {{ coverage }}%</span>
+      <h1>${{ prediccion }}</h1>
+    </div>
+
+    <!-- GRAFICAS -->
+    <div class="graficas">
+      <h3>Historial de gastos</h3>
+      <img src="{{ url_for('static', filename='grafica_lineal.png') }}" alt="Histórico de Gastos">
+      <h3>Lugares más frecuentados</h3>
+      <img src="{{ url_for('static', filename='grafica_pastel.png') }}" alt="Comercios más Frecuentados">
+    </div>
+
+    <!-- BULLET POINTS -->
+    <ul class="bullets">
+      <li>Si eres nuevo usuario y el índice de confiabilidad sale bajo, te invitamos a usar más la aplicación para mayor precisión</li>
+      <li>Revisa tus patrones mensuales para mejorar tu ahorro.</li>
+      <li>Establece presupuestos mensuales por categoría.</li>
+      <li>Prioriza gastos en servicios esenciales.</li>
+      <li>¡Cuídate de los gastos hormiga!</li>
+    </ul>
+
+    <a class="btn-volver" href="/">🔙 Volver</a>
+    <a class="btn-salud" href="/salud-financiera">¿Quieres cuidar tu salud financiera? Aquí te decimos cómo</a>
+  </div>
+</body>
+</html>

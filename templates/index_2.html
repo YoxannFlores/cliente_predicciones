@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predicción Cliente</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0e69ca;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 360px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      background-color: #28a745;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      margin-top: 1rem;
+      font-size: 12px;
+      color: #eee;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    footer a {
+      color: #eee;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="{{ url_for('static', filename='hey_banco.png') }}" alt="Hey Banco" style="width: 140px; margin-bottom: 10px;">
+    <h1>Predicción de Gasto</h1>
+    <form action="/" method="post">
+      <label for="cliente_id">ID del Cliente:</label>
+      <input type="text" name="cliente_id" id="cliente_id" required>
+      <button type="submit">Predecir</button>
+    </form>
+  </div>
+
+  <footer>
+    <a href="#">AVISO DE PRIVACIDAD</a>
+  </footer>
+</body>
+</html>
